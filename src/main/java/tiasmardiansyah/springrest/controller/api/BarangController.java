@@ -1,4 +1,4 @@
-package tiasmardiansyah.springrest.controller.rest;
+package tiasmardiansyah.springrest.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import tiasmardiansyah.springrest.model.Barang;
-import tiasmardiansyah.springrest.service.implementation.BarangRepositoryService;
+
+import tiasmardiansyah.springrest.service.interfaces.BarangServiceInterface;
 
 @RestController
 public class BarangController {
 
-    //untuk tipe response nya, akan otomatis di deteksi oleh spring dengan melihat accept header dari request
-
     @Autowired
-    public BarangRepositoryService service;
+    public BarangServiceInterface service;
 
     @GetMapping(path = "/api/v1/barang")
     public ResponseEntity<?> get() {

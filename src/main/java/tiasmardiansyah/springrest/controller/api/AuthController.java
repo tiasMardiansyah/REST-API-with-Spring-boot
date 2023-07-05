@@ -1,4 +1,4 @@
-package tiasmardiansyah.springrest.controller.rest;
+package tiasmardiansyah.springrest.controller.api;
 
 import java.io.IOException;
 
