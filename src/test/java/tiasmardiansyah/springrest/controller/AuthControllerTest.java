@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import tiasmardiansyah.springrest.model.User;
+import tiasmardiansyah.springrest.configurations.security.UserCredential;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -55,7 +55,7 @@ public class AuthControllerTest {
 
     @Test
     public void registerFailTest() throws JsonProcessingException, Exception {
-        User user = new User();
+        UserCredential user = new UserCredential();
         user.setPassword("");
         //password not set
 

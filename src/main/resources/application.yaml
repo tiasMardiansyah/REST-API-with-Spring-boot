@@ -1,0 +1,21 @@
+server:
+  port: 8181
+  error:
+    include-message: always
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/planet_barang
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      show_sql: true
+      format_sql: true
+
+jwt:
+  key: de1e0cd63e6ea4f9c82a31236776191971ddcb833906c659c12b1b98bc0f28bf

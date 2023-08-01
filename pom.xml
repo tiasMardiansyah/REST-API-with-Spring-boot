@@ -12,14 +12,14 @@
 	<artifactId>spring-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-rest</name>
-	<description>Latihan membuat Web menggunakan Framework Spring</description>
+	<description>Latihan membuat Rest-API menggunakan Framework Spring</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<dependency>
+	<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mustache</artifactId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

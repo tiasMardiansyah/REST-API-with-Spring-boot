@@ -1,6 +1,6 @@
-package tiasmardiansyah.springrest.controller.api;
+package tiasmardiansyah.springrest.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,41 +8,43 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import tiasmardiansyah.springrest.model.Barang;
-
-import tiasmardiansyah.springrest.service.interfaces.BarangServiceInterface;
+import lombok.RequiredArgsConstructor;
+import tiasmardiansyah.springrest.models.Barang;
+import tiasmardiansyah.springrest.services.interfaces.BarangService;
 
 @RestController
+@RequestMapping(path = "api/v1/barang", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequiredArgsConstructor
 public class BarangController {
 
-    @Autowired
-    public BarangServiceInterface service;
+    private final BarangService barangService;
 
-    @GetMapping(path = "/api/v1/barang")
+    @GetMapping()
     public ResponseEntity<?> get() {
-        return service.getAllBarang();
+        return barangService.getAllBarang();
     }
 
-    @GetMapping(path = "/api/v1/barang/{id}")
+    @GetMapping(path = "{id}")
     public ResponseEntity<?> getById(@PathVariable(name = "id") int id) {
-        return service.getBarangById(id);
+        return barangService.read(id);
     }
 
-    @PostMapping(path = "/api/v1/barang")
+    @PostMapping()
     public ResponseEntity<?> post(@ModelAttribute @Valid Barang request) {
-        return service.createBarang(request);
+        return barangService.create(request);
     }
 
-    @PutMapping(path = "/api/v1/barang/{id}")
+    @PutMapping(path = "{id}")
     public ResponseEntity<?> put(@PathVariable(name = "id") int id, @ModelAttribute @Valid Barang request) {
-        return service.updateBarang(id, request);
+        return barangService.update(id, request);
     }
 
-    @DeleteMapping(path = "/api/v1/barang/{id}")
+    @DeleteMapping(path = "{id}")
     public ResponseEntity<?> delete(@PathVariable(name = "id") int id) {
-        return service.deleteBarang(id);
+        return barangService.delete(id);
     }
 }
