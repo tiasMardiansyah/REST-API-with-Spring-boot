@@ -1,3 +1,3 @@
 # REST-API-with-Spring-boot #
 
-sebuah implementasi Rest API menggunakan Java dengan Framework Spring, bersifat cuma latihan. dan juga referensi untuk kedepan nya
+RESTful API implementation using spring boot, for learning Spring MVC and spring data JPA.
